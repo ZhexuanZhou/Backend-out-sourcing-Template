@@ -27,10 +27,6 @@ class User(UserMixin, db.Model):
         super(User, self).__init__(**kwargs)  # 初始化父类
         if self.itsrole is None:
             self.itsrole = Role.query.filter_by(default=True).first()
-            # if self.email == current_app.config['FLASK_ADMIN']:  # 邮箱与管理者邮箱相同
-            #     self.itsrole = Role.query.filter_by(permissions=0xff).first()  # 权限为管理者
-            # else:
-            #     self.itsrole = Role.query.filter_by(default=True).first()  # 默认用户
 
     def __repr__(self):
         return '<User {}>'.format(self.username)

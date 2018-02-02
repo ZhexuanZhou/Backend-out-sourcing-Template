@@ -8,6 +8,7 @@ from . import main
 @main.route('/index')
 @login_required
 @admin_required
+# @permission_required(Permission.MODERATE_COMMENTS)
 def index():
     # user = {'username': 'Miguel'}
     posts = [
