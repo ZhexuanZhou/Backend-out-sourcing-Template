@@ -1,11 +1,13 @@
-from . import main
 from flask import render_template
 from flask_login import login_required
+from ..decorators import permission_required, admin_required
+from . import main
 
 
 @main.route('/')
 @main.route('/index')
 @login_required
+@admin_required
 def index():
     # user = {'username': 'Miguel'}
     posts = [
